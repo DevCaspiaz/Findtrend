@@ -1,0 +1,6 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+body{
+    font-family: var(--font-family);
+    font-weight: var(--regular-weight);
+}

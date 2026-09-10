@@ -1,0 +1,194 @@
+:root {
+  /*! Colors */
+  --white: #FFFFFF;
+  --light-gray-1: #FAFAFA;
+  --light-gray-2: #F5F5F5;
+  --gray: #ADADAD;
+  --black: #000000;
+  --primary-color: #A8FF35;
+  --primary-shadow: #87D322;
+  /** Typography */
+  --font-family: "Source Sans 3", sans-serif;
+  /** Font Size */
+  --text-sm: 1.4rem;
+  --text-md: 1.8rem;
+  --text-lg: 2.4rem;
+  --heading-md: 3.6rem;
+  --display-sm: 6.4rem;
+  --display-md: 7.2rem;
+  /** Font Weight */
+  --regular-weight: 400;
+  --bold-weight: 500;
+  --bolder-weight: 700;
+  --heading-weight: 900;
+  /** Line-height  */
+  --display-tight: 112%;
+  --heading-tight: 100%;
+  --body-normal: 140%;
+  --body-relaxed: 150%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a, img, input, button {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%; /** 10px=1rem */
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--black);
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--regular-weight);
+}
+
+body {
+  overflow: hidden;
+}
+
+.navigation {
+  padding: clamp(2.4rem, 2.224rem + 0.469vw, 2.9rem) clamp(0rem, -2.817rem + 7.512vw, 8rem);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0 clamp(5rem, -14.771rem + 25.744vw, 22.3rem);
+}
+.navigation__logo {
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.32rem;
+}
+.navigation__logo--img {
+  width: 4rem;
+  height: 4rem;
+}
+.navigation__logo--img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.navigation__logo--text {
+  font-weight: var(--bolder-weight);
+  font-size: clamp(var(--text-md), -23.571rem + 33.036vw, var(--text-lg));
+  line-height: var(--heading-tight);
+  color: var(--white);
+}
+.navigation__nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.navigation__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0 clamp(1rem, -2.429rem + 4.464vw, 4rem);
+}
+.navigation__link {
+  position: relative;
+  font-weight: var(--regular-weight);
+  font-size: clamp(var(--text-sm), 0.943rem + 0.595vw, var(--text-md));
+  line-height: var(--heading-tight);
+  color: var(--white);
+}
+.navigation__link::after, .navigation__link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0.2rem;
+  border-radius: 1rem;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.2s ease;
+}
+.navigation__link::after {
+  bottom: -0.3rem;
+}
+.navigation__link::before {
+  bottom: -0.9rem;
+}
+.navigation__link:hover::after, .navigation__link:focus-visible::after {
+  width: 100%;
+}
+.navigation__link:hover::before, .navigation__link:focus-visible::before {
+  width: 60%;
+}
+.navigation__link:active::before {
+  width: 100%;
+}
+.navigation__login {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+}
+.navigation__login .login-btn {
+  font-weight: var(--regular-weight);
+  font-size: clamp(var(--text-sm), 0.943rem + 0.595vw, var(--text-md));
+  line-height: var(--heading-tight);
+  padding: clamp(1rem, 0.771rem + 0.298vw, 1.2rem) clamp(1.6rem, -0.229rem + 2.381vw, 3.2rem);
+  outline: none;
+  border: none;
+  border-radius: 4rem;
+  transition: all 0.2s;
+}
+.navigation__login .btn-black {
+  background-color: var(--black);
+  color: var(--white);
+}
+.navigation__login .btn-black:hover,
+.navigation__login .btn-black:focus-visible {
+  background-color: var(--primary-color);
+  color: var(--black);
+}
+.navigation__login .btn-white {
+  background-color: var(--white);
+}
+.navigation__login .btn-white:hover,
+.navigation__login .btn-white:focus-visible {
+  background-color: var(--primary-color);
+}/*# sourceMappingURL=main.css.map */
