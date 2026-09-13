@@ -3,7 +3,7 @@
 
 .header {
     margin-block-start: 10rem;
-
+    margin-block-end: 9rem;
     &__title {
         text-align: center;
         font-size: clamp(3.6rem, calc(-0.514rem + 5.357vw), 7.2rem);
@@ -35,6 +35,12 @@
             border-radius: 4rem;
             background-color: var(--primary-color);
             transition: background-color .2s ease;
+
+            .fire-icon {
+                animation: myAnim 2.5s ease 0s infinite normal forwards;
+            }
+            .get-start-text { animation: myAnim 2.5s ease 0s infinite normal forwards;}
+
             &:hover { background-color: var(--primary-shadow);}
         }
 
@@ -43,29 +49,99 @@
     &__social {
         @include flex;
         padding-inline: clamp(0rem, calc(-21.143rem + 27.53vw), 18.5rem);
-        img { position: relative; width: clamp(25rem, calc(13.571rem + 14.881vw), 35rem);}
+        img {width: clamp(25rem, calc(13.571rem + 14.881vw), 35rem);}
 
         img:nth-child(1) {
-
             z-index: 4;
+            animation: commentRain 2s ease 0s 1 normal forwards;
         }
         img:nth-child(2) {
             transform: translateX(-10rem) translateY(6rem);
             z-index: 3;
+            animation: reverseCommentRain 2s ease 0s 1 normal forwards;
         }
         img:nth-child(3) {
             transform: translateX(-20rem) translateY(.5rem);
             z-index: 2;
+            animation: commentRain 2s ease 0s 1 normal forwards;
         }
         img:nth-child(4) {
             transform: translateX(-30rem) translateY(6rem);
             z-index: 1;
+            animation: reverseCommentRain 2s ease 0s 1 normal forwards;
         }
     }
 }
 
+//Social Media comment Animations
+
+@keyframes myAnim {
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
+
+	25%,
+	75% {
+		opacity: 0;
+	}
+}
+
+@keyframes commentRain {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes reverseCommentRain {
+    0% {
+        opacity: 0;
+        transform: translateY(10rem);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/** Media Query*/
+
+//*Tablet
 
 @media (max-width: 768px) {
+
+    .header {
+        padding: 0 1rem;
+        margin-block-end: 0;
+        &__social{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            
+            img:nth-child(2) {
+                transform: translateX(-2rem) translateY(0);
+            }
+            img:nth-child(3) {
+                transform: translateX(2rem) translateY(0);
+            }
+            img:nth-child(4) {
+                transform: translateX(0) translateY(0);
+            }
+        }    
+
+    }
+}
+
+//*Mobile
+
+@media (max-width: 480px) {
     
     .header {
         padding: 0 2.8rem;
@@ -79,21 +155,19 @@
         &__social {
             display: block;
         }
-        img:nth-child(1) {
-            z-index: 4;
-        }
+
+        img { width: 100%;}
+
         img:nth-child(2) {
             transform: translateX(0) translateY(-2rem);
-            z-index: 3;
         }
         img:nth-child(3) {
             transform: translateX(0) translateY(-5rem);
-            z-index: 2;
         }
         img:nth-child(4) {
             transform: translateX(0) translateY(-7rem);
-            z-index: 1;
         }
         
     }
 }
+

@@ -10,6 +10,7 @@
         width: max-content;
         @include flexRowCenter;
         gap: 1.32rem;
+        z-index: 10;
 
         &--img {
             width: 4rem;
@@ -31,6 +32,7 @@
     &__nav {
         width: 100%;
         @include flex($justify: space-between,);
+        z-index: 9;
     }
 
     &__list {
@@ -108,7 +110,7 @@
         height: 2.5rem;
         cursor: pointer;
         position: relative;
-        z-index: 999;
+        z-index: 10;
         
         span{
             width: 1.8rem;
@@ -119,7 +121,9 @@
     }
 }
 
+/** Media Query*/
 
+//*Tablet
 
 @media (max-width: 768px) {
 
@@ -129,7 +133,7 @@
         top: 0;
         width: 100%;
         background-color: black;
-
+        z-index: 999;
         &__nav {
             position: fixed;
             top: 0;
@@ -140,7 +144,6 @@
             width: 100vw;
             @include flexColumnCenter($gap: 4rem);
             background-color: var(--black);
-            z-index: 998;
             transition: all .2s ease-in;
         }
 
@@ -150,7 +153,6 @@
 
         &__logo {
             position: relative;
-            z-index: 999;
         }
 
         &__list {
