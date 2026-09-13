@@ -1,0 +1,1 @@
+responsive tablet and mobile must be different

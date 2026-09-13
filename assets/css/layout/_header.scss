@@ -1,2 +1,99 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
+
+.header {
+    margin-block-start: 10rem;
+
+    &__title {
+        text-align: center;
+        font-size: clamp(3.6rem, calc(-0.514rem + 5.357vw), 7.2rem);
+        font-weight: var(--heading-weight);
+        line-height: var(--display-tight);
+        color: var(--white);
+        margin-block-end: clamp(1.6rem, calc(0.686rem + 1.19vw), 2.4rem);
+    }
+
+    &__text {
+        text-align: center;
+        font-size: clamp(var(--text-sm), calc(0.943rem + 0.595vw), var(--text-md));
+        font-weight: var(--regular-weight);
+        line-height: var(--body-relaxed);
+        color: var(--light-gray-3);
+        margin-block-end: 2.8rem;
+    }
+
+    &__btn {
+        @include flexRowCenter($gap: 1.8rem);
+        margin-block-end: clamp(6rem, calc(2rem + 5.208vw), 9.5rem);
+
+        .get-start {
+            font-size: clamp(var(--text-sm), calc(0.943rem + 0.595vw), var(--text-md));
+            font-weight: var(--bolder-weight);
+            line-height: var(--body-normal);
+            color: var(--black);
+            padding: clamp(1.2rem, calc(0.743rem + 0.595vw), 1.6rem) clamp(2.4rem, calc(1.486rem + 1.19vw), 3.2rem);
+            border-radius: 4rem;
+            background-color: var(--primary-color);
+            transition: background-color .2s ease;
+            &:hover { background-color: var(--primary-shadow);}
+        }
+
+    }
+
+    &__social {
+        @include flex;
+        padding-inline: clamp(0rem, calc(-21.143rem + 27.53vw), 18.5rem);
+        img { position: relative; width: clamp(25rem, calc(13.571rem + 14.881vw), 35rem);}
+
+        img:nth-child(1) {
+
+            z-index: 4;
+        }
+        img:nth-child(2) {
+            transform: translateX(-10rem) translateY(6rem);
+            z-index: 3;
+        }
+        img:nth-child(3) {
+            transform: translateX(-20rem) translateY(.5rem);
+            z-index: 2;
+        }
+        img:nth-child(4) {
+            transform: translateX(-30rem) translateY(6rem);
+            z-index: 1;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    
+    .header {
+        padding: 0 2.8rem;
+
+        &__btn {
+            img {
+                display: none;
+            }
+        }
+
+        &__social {
+            display: block;
+        }
+        img:nth-child(1) {
+            z-index: 4;
+        }
+        img:nth-child(2) {
+            transform: translateX(0) translateY(-2rem);
+            z-index: 3;
+        }
+        img:nth-child(3) {
+            transform: translateX(0) translateY(-5rem);
+            z-index: 2;
+        }
+        img:nth-child(4) {
+            transform: translateX(0) translateY(-7rem);
+            z-index: 1;
+        }
+        
+    }
+}

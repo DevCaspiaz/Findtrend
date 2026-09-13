@@ -1,10 +1,6 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-body {
-    overflow: hidden;
-}
-
 .navigation {
     padding: clamp(2.4rem, calc(2.224rem + 0.469vw), 2.9rem) clamp(0rem, calc(-2.817rem + 7.512vw), 8rem);
     @include flex($justify: space-between, $gap: 0 clamp(5rem, calc(-14.771rem + 25.744vw), 22.3rem));
@@ -105,4 +101,84 @@ body {
             background-color: var(--primary-color);
         }
     }
+
+    .btn-toggle {
+        display: none;
+        width: 2.5rem;
+        height: 2.5rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 999;
+        
+        span{
+            width: 1.8rem;
+            height: 0.2rem;
+            background-color: var(--white);
+            transition: all .2s ease;
+        }
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    .navigation {
+        position: fixed;
+        padding: 2.4rem 1.8rem;
+        top: 0;
+        width: 100%;
+        background-color: black;
+
+        &__nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            min-height: 100vh;
+            height: 100%;
+            width: 100vw;
+            @include flexColumnCenter($gap: 4rem);
+            background-color: var(--black);
+            z-index: 998;
+            transition: all .2s ease-in;
+        }
+
+        &__nav.active {
+            transform: translateX(0%);
+        }
+
+        &__logo {
+            position: relative;
+            z-index: 999;
+        }
+
+        &__list {
+            @include flex($direction: column, $justify: space-between, $gap: 4rem);
+        }
+
+        &__link {
+            font-size: 1.8rem;
+        }
+
+        &__login{
+            @include flexColumnCenter($gap: 4rem);
+        }
+
+        .btn-toggle {
+            @include flexColumnCenter($gap:.7rem);
+        }
+
+        .btn-toggle.rotate {
+            .first-line-span {
+                transform-origin: top left;
+                transform: rotate(45deg);
+            }
+            .last-line-span {
+                transform-origin: bottom left;
+                transform: translateY(.35rem) rotate(-45deg);
+            }
+        }
+    }
+
 }
