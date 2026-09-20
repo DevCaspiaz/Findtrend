@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
+@use '../base/utilities' as*;
 
 .new-tab {
     background-color: var(--primary-color);
@@ -93,19 +94,6 @@
         }
     }
 
-    &__entrence-title span,
-    &__title {
-        font-size: clamp(var(--heading-md), calc(2.614rem + 2.629vw), var(--display-sm));
-        font-weight: var(--bolder-weight);
-        line-height: var(--heading-tight);
-        color: var(--black);    
-    }
-
-    &__title {
-        text-align: center;
-        margin-block-end: clamp(3.2rem, calc(1.51rem + 4.507vw), 8rem);
-    }
-
     &__content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -152,6 +140,67 @@
     }
 }
 
+.connect {
+    padding: clamp(8rem, calc(5.887rem + 5.634vw), 14rem) clamp(1.8rem, calc(-2.496rem + 11.455vw), 14rem);
+    background-color: var(--light-gray-1);
+
+    &__icons {
+        @include flex(
+            $justify: space-between,
+            $wrap: wrpa,
+            $gap:clamp(1rem, calc(0.507rem + 1.315vw), 2.4rem)
+        );
+        margin-block-end: clamp(3.2rem, calc(1.616rem + 4.225vw), 7.7rem);
+        
+        &__box {
+            width: clamp(6.4rem, calc(4.287rem + 5.634vw), 12.4rem);
+            height: clamp(6.4rem, calc(4.287rem + 5.634vw), 12.4rem);
+            @include flexRowCenter;
+            border-radius: .8rem;
+            transition: background-color .2s ease;
+
+            img{ 
+                width: clamp(3.2rem, calc(2.144rem + 2.817vw), 6.2rem);
+                object-fit: cover;}
+
+            &:hover {
+                background-color: var(--primary-color);
+            }
+        }
+    }
+
+    &__comments {
+        @include flexColumnCenter($gap: clamp(1.6rem, calc(0.649rem + 2.535vw), 4.3rem) 0);
+        margin-block-start: clamp(3.2rem, calc(1.616rem + 4.225vw), 7.7rem);
+        margin-block-end: clamp(3.2rem, calc(1.51rem + 4.507vw), 8rem);
+        margin-inline:clamp(0rem, calc(-6.268rem + 16.714vw), 17.8rem);
+        .comment__box {
+            width: 100%;
+            @include flexRowCenter;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__btn {
+        margin: 0 auto;
+        padding: clamp(1.2rem, calc(1.059rem + 0.376vw), 1.6rem) clamp(2.4rem, calc(2.118rem + 0.751vw), 3.2rem);
+        background-color: var(--black);
+        color: var(--white);
+        border-radius: 4rem;
+        transition: all .2s ease;
+        font-size: clamp(var(--text-sm), calc(1.259rem + 0.376vw), var(--text-md));
+
+        &:hover,
+        &:focus-visible
+        { 
+            background-color: var(--primary-color);
+            color: var(--black);
+        }
+    }
+}
 
 
 

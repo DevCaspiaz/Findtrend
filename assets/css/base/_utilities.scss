@@ -1,2 +1,14 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
+
+.title {
+    font-size: clamp(var(--heading-md), calc(2.614rem + 2.629vw), var(--display-sm));
+    font-weight: var(--bolder-weight);
+    line-height: var(--heading-tight); 
+    text-align: center;
+    margin-block-end: clamp(3.2rem, calc(1.51rem + 4.507vw), 8rem);
+}
+
+.title-black { color: var(--black);}
+
+.title-white { color: var(--white);}
