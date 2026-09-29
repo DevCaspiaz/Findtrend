@@ -82,7 +82,6 @@
 }
 
 .startup {
-    padding: clamp(8rem, calc(5.887rem + 5.634vw), 14rem) clamp(1.8rem, calc(-2.496rem + 11.455vw), 14rem);
     background-color: var(--white);
 
     &__entrence-title {
@@ -141,7 +140,6 @@
 }
 
 .connect {
-    padding: clamp(8rem, calc(5.887rem + 5.634vw), 14rem) clamp(1.8rem, calc(-2.496rem + 11.455vw), 14rem);
     background-color: var(--light-gray-1);
 
     &__icons {
@@ -200,6 +198,132 @@
             color: var(--black);
         }
     }
+}
+
+.pricing {
+
+    &__billing {
+        @include flexRowCenter ($gap: 2.4rem);
+        margin-block-end: 4rem;
+
+        &--offer {
+            font-size: clamp(var(--text-md), calc(1.589rem + 0.563vw), var(--text-lg));
+            font-weight: var(--bold-weight);
+            line-height: var(--heading-tight);
+            color: var(--light-gray-2);
+            background-color: transparent;
+        }
+    }
+
+    &__toggle {
+        display: block;
+        width: 10.4rem;
+        padding: .8rem;
+        background-color: var(--white);
+        border-radius: 9.9rem;
+
+        &--circle {
+            display: block;
+            width: clamp(2.8rem, calc(2.518rem + 0.751vw), 3.6rem);
+            height: clamp(2.8rem, calc(2.518rem + 0.751vw), 3.6rem);
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            cursor: pointer;
+        }
+    }
+
+    &__plans {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+    }
+
+    &__card {
+        background-color: var(--white);
+        padding: clamp(3rem, calc(2.93rem + 0.188vw), 3.2rem);
+        border-radius: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: all .2s ease;
+
+        &__header {
+            width: 100%;
+            padding-block-end: clamp(2.4rem, calc(2.118rem + 0.751vw), 3.2rem);
+            border-bottom: 1px solid #00000020;
+            margin-block-end: 3.2rem;
+        }
+
+        &__title {
+            font-size: clamp(3.2rem, calc(3.059rem + 0.376vw), var(--heading-md));
+            margin-block-end: .8rem;
+        }
+
+        &__describtion {
+            font-size: var(--text-md);
+        }
+
+        &__price {
+            margin-block-end: clamp(2.4rem, calc(2.118rem + 0.751vw), 3.2rem);
+        }
+
+        &__amount {
+            font-size: clamp(6rem, calc(5.859rem + 0.376vw), 6.4rem);
+        }
+
+        &__period {
+            font-size: var(--text-md);
+        }
+
+        &__features {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            margin-block-end: clamp(2.6rem, calc(2.107rem + 1.315vw), 4rem);
+        }
+
+        &__feature {
+            position: relative;
+            padding-left: 2rem;
+            font-size: var(--text-md);
+        }
+
+        &__feature::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: var(--text-md);
+        }
+
+        &__button {
+            display: block;
+            width: 100%;
+            margin-top: auto;
+            padding: clamp(1.5rem, calc(1.43rem + 0.188vw), 1.7rem) clamp(8rem, calc(7.648rem + 0.939vw), 9rem);
+            border-radius: 2.9rem;
+            font-size: var(--text-md);
+            font-weight: var(--bolder-weight);
+            line-height: var(--body-normal);
+            text-align: center;
+            background-color: var(--primary-color);
+            transition: all .2s ease;
+        }
+
+        &:hover,
+        &:focus-visible {
+            background-color: var(--primary-color);
+            transform: scale(1.03);
+        }
+
+        &:hover &__button,
+        &:focus-visible &__button {
+            background-color: var(--black);
+            color: var(--white);
+        }
+    }
+
+
 }
 
 
@@ -265,7 +389,25 @@
         }
 
         &__content {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    .connect {
+
+        &__icons {
+
+            &__box {
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .pricing {
+        &__plans {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }
