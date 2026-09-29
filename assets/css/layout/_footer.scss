@@ -1,2 +1,51 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
+@use '../base/utilities' as*;
+.footer {
+    background-color: var(--white);
+    padding: clamp(1.6rem, calc(1.107rem + 1.315vw), 3rem) clamp(5rem, calc(3.944rem + 2.817vw), 8rem);
+    @include flex ($justify: space-between);
+
+    &__logo {
+
+        @include flexRowCenter ($gap:1rem);
+
+        &--name{
+            font-size: var(--text-lg);
+            font-weight: var(--bolder-weight);
+            line-height: var(--heading-tight);
+        }
+    }
+
+    &__list {
+        @include flex($justify: space-between, $gap: 0 clamp(2rem, calc(1.296rem + 1.878vw), 4rem));
+        &__item {
+            padding: .3rem .5rem;
+            transition: all .2s ease;
+            border-radius: .5rem;
+            &--link {
+                font-size: var(--text-md);
+                color: var(--black);
+            }
+
+            &:hover,
+            &:focus-visible {
+                background-color: var(--primary-shadow);
+                transform: rotate(-3deg);
+            }
+
+        }
+    }
+}
+@media (max-width: 480px) {
+    .footer {
+        flex-direction: column;
+        padding: 8rem 0;
+        gap: 8rem;
+
+        &__list {
+            flex-direction: column;
+            gap: 4rem;
+        }
+    }
+}

@@ -1,1 +1,7 @@
 pricing__card title marginblockend for mobil 14px
+
+button types:
+
+bg-white color-black
+bg-primary color - black
+bg-black color-white

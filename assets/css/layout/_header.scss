@@ -30,11 +30,6 @@
             font-size: clamp(var(--text-sm), calc(0.943rem + 0.595vw), var(--text-md));
             font-weight: var(--bolder-weight);
             line-height: var(--body-normal);
-            color: var(--black);
-            padding: clamp(1.2rem, calc(0.743rem + 0.595vw), 1.6rem) clamp(2.4rem, calc(1.486rem + 1.19vw), 3.2rem);
-            border-radius: 4rem;
-            background-color: var(--primary-color);
-            transition: background-color .2s ease;
 
             .fire-icon {
                 animation: myAnim 2.5s ease 0s infinite normal forwards;

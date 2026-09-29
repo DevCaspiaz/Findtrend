@@ -82,25 +82,7 @@
             font-size: clamp(var(--text-sm), calc(0.943rem + 0.595vw), var(--text-md));
             line-height: var(--heading-tight);
             padding: clamp(1rem, calc(0.771rem + 0.298vw), 1.2rem) clamp(1.6rem, calc(-0.229rem + 2.381vw), 3.2rem);
-            outline: none;
-            border: none;
             border-radius: 4rem;
-            transition: all .2s;
-        }
-
-        .btn-black { background-color: var(--black); color: var(--white);}
-
-        .btn-black:hover,
-        .btn-black:focus-visible {
-            background-color: var(--primary-color);
-            color: var(--black);
-        }
-
-        .btn-white { background-color: var(--white);}
-
-        .btn-white:hover,
-        .btn-white:focus-visible {
-            background-color: var(--primary-color);
         }
     }
 

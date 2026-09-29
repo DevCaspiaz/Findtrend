@@ -1,2 +1,47 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
+
+
+.btn {
+    display: block;
+    text-align: center;
+    transition: all .2s ease;
+}
+
+.btn-padding-32 {
+    padding: clamp(1.2rem, calc(1.059rem + 0.376vw), 1.6rem) clamp(2.4rem, calc(2.118rem + 0.751vw), 3.2rem);
+    border-radius: 4rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--black);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--black);
+        color: var(--white);
+    }
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--black);
+
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--primary-color);
+    }
+}
+
+.btn-black {
+    background-color: var(--black);
+    color: var(--white);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--primary-color);
+        color: var(--black);
+    }
+}
