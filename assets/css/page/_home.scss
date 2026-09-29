@@ -124,8 +124,8 @@
 
     &__icons {
         @include flex(
-            $justify: space-between,
-            $wrap: wrpa,
+            $justify: center,
+            $wrap: wrap,
             $gap:clamp(1rem, calc(0.507rem + 1.315vw), 2.4rem)
         );
         margin-block-end: clamp(3.2rem, calc(1.616rem + 4.225vw), 7.7rem);
@@ -179,8 +179,14 @@
             font-size: clamp(var(--text-md), calc(1.589rem + 0.563vw), var(--text-lg));
             font-weight: var(--bold-weight);
             line-height: var(--heading-tight);
-            color: var(--light-gray-2);
+            color: var(--white);
+            opacity: 0.5;
             background-color: transparent;
+            transition: color .2s ease;
+
+            &.is-active {
+                opacity: 1;
+            }
         }
     }
 
@@ -190,6 +196,7 @@
         padding: .8rem;
         background-color: var(--white);
         border-radius: 9.9rem;
+        cursor: pointer;
 
         &--circle {
             display: block;
@@ -197,7 +204,11 @@
             height: clamp(2.8rem, calc(2.518rem + 0.751vw), 3.6rem);
             border-radius: 50%;
             background-color: var(--primary-color);
-            cursor: pointer;
+            transition: transform .2s ease;
+        }
+
+        &.is-yearly &--circle {
+            transform: translateX(calc(10.4rem - 1.6rem - clamp(2.8rem, calc(2.518rem + .751vw), 3.6rem)));
         }
     }
 
@@ -384,6 +395,14 @@
 
 /** Media Query*/
 
+@media (max-width: 1025px) {
+    .pricing {
+        &__plans {
+            grid-template-columns: repeat( auto-fit, minmax(280px, 1fr) );
+        }
+    }
+} 
+
 @media (max-width: 768px)  {
     .startup {
         &__content {
@@ -480,7 +499,6 @@
             right: 5rem;
             bottom: -8rem;
             animation: moveRotateMobileComment 1s infinite ease ;
-            animation: name duration timing-function delay iteration-count direction fill-mode;
         }
         
         &__plans {

@@ -58,7 +58,7 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: none;
+  background-color: transparent;
 }
 
 html {
@@ -657,9 +657,9 @@ body {
 .connect__icons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrpa;
+  flex-wrap: wrap;
   gap: clamp(1rem, 0.507rem + 1.315vw, 2.4rem);
   margin-block-end: clamp(3.2rem, 1.616rem + 4.225vw, 7.7rem);
 }
@@ -723,8 +723,13 @@ body {
   font-size: clamp(var(--text-md), 1.589rem + 0.563vw, var(--text-lg));
   font-weight: var(--bold-weight);
   line-height: var(--heading-tight);
-  color: var(--light-gray-2);
+  color: var(--white);
+  opacity: 0.5;
   background-color: transparent;
+  transition: color 0.2s ease;
+}
+.pricing__billing--offer.is-active {
+  opacity: 1;
 }
 .pricing__toggle {
   display: block;
@@ -732,6 +737,7 @@ body {
   padding: 0.8rem;
   background-color: var(--white);
   border-radius: 9.9rem;
+  cursor: pointer;
 }
 .pricing__toggle--circle {
   display: block;
@@ -739,7 +745,10 @@ body {
   height: clamp(2.8rem, 2.518rem + 0.751vw, 3.6rem);
   border-radius: 50%;
   background-color: var(--primary-color);
-  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.pricing__toggle.is-yearly .pricing__toggle--circle {
+  transform: translateX(calc(8.8rem - clamp(2.8rem, 2.518rem + 0.751vw, 3.6rem)));
 }
 .pricing__plans {
   display: grid;
@@ -878,6 +887,11 @@ body {
   }
 }
 /** Media Query*/
+@media (max-width: 1025px) {
+  .pricing__plans {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
 @media (max-width: 768px) {
   .startup__content {
     grid-template-columns: repeat(3, 1fr);
@@ -943,7 +957,6 @@ body {
     right: 5rem;
     bottom: -8rem;
     animation: moveRotateMobileComment 1s infinite ease;
-    animation: name duration timing-function delay iteration-count direction fill-mode;
   }
   .pricing__plans {
     grid-template-columns: repeat(1, 1fr);

@@ -28,11 +28,11 @@
         <nav class="navigation__nav">
 
             <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link">About</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">How it work</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Pricing</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Solution</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Features</a></li>
+                <li class="navigation__item"><a href="#about" class="navigation__link">About</a></li>
+                <li class="navigation__item"><a href="#howItWorks" class="navigation__link">How it works</a></li>
+                <li class="navigation__item"><a href="#pricing" class="navigation__link">Pricing</a></li>
+                <li class="navigation__item"><a href="#solutions" class="navigation__link">Solution</a></li>
+                <li class="navigation__item"><a href="#features" class="navigation__link">Features</a></li>
             </ul>
 
             <div class="navigation__login">
@@ -42,16 +42,16 @@
 
         </nav>
 
-        <div class="btn-toggle">
+        <button type="button" aria-label="" aria-controls="" aria-expanded="true" class="btn-toggle">
             <span class="first-line-span"></span>
             <span class="last-line-span"></span>
-        </div>
+        </button>
 
     </div>
 
     <header class="header">
 
-        <h1 class="header__title"">
+        <h1 class="header__title">
             Minimize your tabs. <br>
             Find the trends!
         </h1>
@@ -75,7 +75,7 @@
 
     <main>
 
-        <section class="new-tab">
+        <section class="new-tab" id="about">
 
             <div class="new-tab__container">
 
@@ -89,7 +89,7 @@
                     </div>
 
                     <button type="button" class="new-tab__center-comment">
-                        <img src="./assets/image/logo-comment.svg" alt="Comment by Elon Mask">
+                        <img src="./assets/image/logo-comment.svg" alt="Comment by Elon Musk">
                     </button>
 
                     <div class="new-tab__right-comment">
@@ -106,13 +106,13 @@
 
         <section class="startup padding-primary">
 
-            <h2 class="startup__entrence-title title title-black"><span>Findtrend helps you to increase your</span><span>productivity and reduce your computer's</span><span>memory load, <span class="gray-text">an application that can</span></span> <span class="gray-text">fulfill your daily browsing needs.</span></h2>
+            <h2 class="startup__entrence-title title title-black" id="howItWorks"><span>Findtrend helps you to increase your</span><span>productivity and reduce your computer's</span><span>memory load, <span class="gray-text">an application that can</span></span> <span class="gray-text">fulfill your daily browsing needs.</span></h2>
 
             <div class="startup__container">
 
-                <h2 class="startup__title title title-black">Findtrend make +1000 Startup grow</h2>
+                <h2 class="startup__title title title-black">Findtrend makes +1000 Startup grow</h2>
 
-                <div class="startup__content">
+                <div class="startup__content" id="features">
 
                     <div class="startup__box"><img src="./assets/image/microsoft-icon.svg" alt="Microsoft Logo" class="startup__box--img"></div>
                     <div class="startup__box"><img src="./assets/image/allianz-icon.svg" alt="" class="startup__box--img"></div>
@@ -139,7 +139,7 @@
 
         </section>
 
-        <section class="connect padding-primary">
+        <section class="connect padding-primary" id="solutions">
             
             <h2 class="connect__title title title-black">
                 All platform connect to Findtrend
@@ -202,7 +202,7 @@
 
         </section>
 
-        <section class="pricing padding-primary">
+        <section class="pricing padding-primary" id="pricing">
 
             <div class="pricing__container">
 
@@ -210,13 +210,13 @@
 
                 <div class="pricing__billing">
 
-                    <button class="pricing__billing--offer">Monthly</button>
+                    <button type="button" class="pricing__billing--offer is-active" data-billing="monthly" aria-pressed="true">Monthly</button>
                     
-                    <span class="pricing__toggle">
+                    <button type="button" class="pricing__toggle" aria-label="Switch to yearly billing" aria-pressed="false">
                         <span class="pricing__toggle--circle"></span>
-                    </span>
+                    </button>
 
-                    <button class="pricing__billing--offer">Yearly</button>
+                    <button type="button" class="pricing__billing--offer" data-billing="yearly" aria-pressed="false">Yearly</button>
 
                     <img src="./assets/image/arrow-comment.svg" alt="" class="pricing__comment">
 
@@ -233,7 +233,7 @@
                         </div>
 
                         <div class="pricing__card__price">
-                            <span class="pricing__card__amount">$8</span>
+                            <span class="pricing__card__amount" data-monthly-price="8">$8</span>
                             <span class="pricing__card__period">/Month</span>
                         </div>
 
@@ -257,7 +257,7 @@
                         </div>
 
                         <div class="pricing__card__price">
-                            <span class="pricing__card__amount">$20</span>
+                            <span class="pricing__card__amount" data-monthly-price="20">$20</span>
                             <span class="pricing__card__period">/Month</span>
                         </div>
 
@@ -282,7 +282,7 @@
                         </div>
 
                         <div class="pricing__card__price">
-                            <span class="pricing__card__amount">$48</span>
+                            <span class="pricing__card__amount" data-monthly-price="48">$48</span>
                             <span class="pricing__card__period">/Month</span>
                         </div>
 
