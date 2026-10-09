@@ -331,7 +331,182 @@
 
 }
 
-//Footer
+.login-register {
+    width: 100%;
+    height: 100%;
+    @include flexRowCenter;
+    background-color: var(--black);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+
+    &.active {
+        display: flex;
+    }
+
+    img {
+        width: clamp(1.5rem, calc(1.148rem + 0.939vw), 2.5rem);
+        height: clamp(1.5rem, calc(1.148rem + 0.939vw), 2.5rem);
+    }
+
+    &__container {
+        width: 50%;
+        @media (max-width: 480px) {
+            width: 80%;
+        }
+        padding: clamp(1.6rem, calc(1.037rem + 1.502vw), 3.2rem);
+        background-color: var(--white);
+        border-radius: 1rem;
+        opacity: 0;
+        transform: scale(0);
+
+        &.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    &__tabs {
+        
+        margin-block-end: clamp(2rem, calc(1.12rem + 2.347vw), 4.5rem);
+        @include flex($justify: space-between);
+        border-bottom: 1px solid var(--light-gray-4);
+
+        &--buttons {
+            @include flex ($gap: 0 clamp(1.6rem, calc(1.037rem + 1.502vw), 3.2rem));
+        }
+
+        &__btn {
+            display: block;
+            position: relative;
+            font-size: clamp(1.4rem, calc(1.259rem + 0.376vw), 1.8rem);
+            font-weight: var(--bolder-weight);
+            color: var(--light-gray-3);
+            padding: clamp(1rem, calc(0.93rem + 0.188vw), 1.2rem);
+            transition: color .2s ease;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: .5rem;
+                background-color: var(--primary-color);
+                border-radius: 1rem;
+                bottom: 0;
+                left: 0;
+                opacity: 0;
+                transition: opacity .2s ease;
+            }
+
+            &:hover::after,
+            &:focus-visible::after,
+            &:focus::after,
+            &:focus-within::after {
+                opacity: 1;
+            }
+
+        }
+
+    }
+
+    &__title {
+        font-size: clamp(2.4rem, calc(1.977rem + 1.127vw), 3.6rem);
+        font-weight: var(--heading-weight);
+    }
+
+    &__description {
+        font-size: clamp(1.4rem, calc(1.259rem + 0.376vw), 1.8rem);
+        color: var(--light-gray-3);
+        margin-block-end: clamp(1.5rem, calc(1.324rem + 0.469vw), 2rem);
+    }
+
+    &__form {
+
+        @include flex($direction: column, $align: flex-start, $gap: 2rem)
+    }
+
+    &__field {
+        position: relative;
+        width: 100%;
+
+        & img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &--icon {
+            left: 1rem;
+        }
+
+        &--visibility-icon {
+            right: 1rem;
+        }
+
+        &--input {
+            display: block;
+            width: 100%;
+            padding: clamp(1rem, calc(0.648rem + 0.939vw), 2rem) clamp(3rem, calc(2.648rem + 0.939vw), 4rem);
+            font-size: clamp(1.4rem, calc(1.259rem + 0.376vw), 1.8rem);
+            border: 1px solid var(--light-gray-3);
+            border-radius: 1rem;
+        }
+    }
+
+    &__forgot-password {
+        margin-left: auto;
+        font-size: clamp(1.4rem, calc(1.259rem + 0.376vw), 1.8rem);
+        color: var(--primary-color);
+    }
+
+    .register-button,
+    .sign-in-btn {
+        display: none;
+        width: 100%;
+        border-radius: 1rem;
+        padding: clamp(1rem, calc(0.824rem + 0.469vw), 1.5rem);
+        font-size: clamp(1.4rem, calc(1.259rem + 0.376vw), 1.8rem);
+        font-weight: var(--bolder-weight);
+        @include flexRowCenter($gap: 1rem);
+    }
+
+    .password-repeat{display: none;}
+
+    .sign-in-btn.active {
+        display: block;
+    }
+
+    .register-button.active,
+    .password-repeat.active {
+        display: block;
+    }
+    
+    
+    &__separator {
+        width: 100%;
+        height: 1px;
+        background-color: var(--light-gray-3);
+        position: relative;
+
+        & .gray {
+            display: block;
+            width: 5rem;
+            position: absolute;
+            font-size: clamp(1.4rem, calc(1.259rem + 0.376vw), 1.8rem);
+            text-align: center;
+            background-color: var(--white);
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    
+}
+
+
 
 
 

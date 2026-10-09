@@ -36,8 +36,8 @@
             </ul>
 
             <div class="navigation__login">
-                <button class="login-btn btn-black btn">Login</button>
-                <button class="login-btn btn-white btn">Register</button>
+                <button class="login-btn btn-black btn" id="login-btn">Login</button>
+                <button class="login-btn btn-white btn" id="register-btn" >Register</button>
             </div>
 
         </nav>
@@ -314,6 +314,75 @@
             </h2>
 
             <button class="join__button btn btn-padding-32 btn-black">Join now</button>
+
+        </section>
+
+        <section class="login-register" id="login-register">
+
+            <div class="login-register__container">
+
+                <div class="login-register__tabs">
+
+                    <div class="login-register__tabs--buttons">
+                        <button id="login-page" class="login-register__tabs__btn">Login</button>
+                        <button id="register-page" class="login-register__tabs__btn">Register</button>
+                    </div>
+
+                    <button type="button" class="close-btn"><img src="./assets/image/cancel-btn.svg" alt=""></button>
+                    
+                </div>
+
+                <h2 class="login-register__title">Welcome back.</h2>
+
+                <p class="login-register__description">Sign in to continue to Findtrend.</p>
+
+                <form class="login-register__form" action="#">
+
+                    <label class="login-register__field" for="email">
+                        
+                        <img src="./assets/image/mail.svg" alt="" class="login-register__field--icon">
+
+                        <input class="login-register__field--input" type="email" name="email" id="email" placeholder="Email address">
+
+                    </label>
+
+                    <label class="login-register__field" for="password">
+
+                        <img src="./assets/image/password.svg" alt="" class="login-register__field--icon">
+
+                        <input class="login-register__field--input" type="password" name="password" id="password" placeholder="Password">
+
+                        <img src="./assets/image/visibility.svg" alt="" class="login-register__field--visibility-icon">
+                        <img src="./assets/image/visibility-of.svg" alt="" class="login-register__field--visibility-icon">
+
+                    </label>
+
+                    <label class="login-register__field password-repeat" for="password-repeat">
+
+                        <img src="./assets/image/password.svg" alt="" class="login-register__field--icon">
+
+                        <input class="login-register__field--input" type="password" name="password-repeat" id="password-repeat" placeholder="Repeat password again">
+
+                        <img src="./assets/image/visibility.svg" alt="" class="login-register__field--visibility-icon">
+                        <img src="./assets/image/visibility-of.svg" alt="" class="login-register__field--visibility-icon">
+
+                    </label>
+
+                    <a href="#" class="login-register__forgot-password">Forgot password?</a>
+
+                    <button type="submit" class="btn btn-primary sign-in-btn">Sign in</button>
+
+                    <button type="submit" class="btn btn-primary register-button">Register</button>
+                    
+                    <div class="login-register__separator"><span class="gray">or</span></div>
+
+                    <button class="btn btn-black register-button"><img src="./assets/image/google-logo.svg" alt=""> Continue with Google</button>
+
+                </form>
+
+
+
+            </div>
 
         </section>
 

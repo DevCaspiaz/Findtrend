@@ -78,3 +78,141 @@ billingOffers.forEach((offer) => {
 billingToggle.addEventListener("click", () => {
     setBillingPeriod(billingToggle.classList.contains("is-yearly") ? "monthly" : "yearly");
 });
+
+
+
+
+
+//!Register
+
+
+const logButtons = document.querySelectorAll("#login-btn, #register-btn");
+
+
+const loginRegistration = document.querySelector(".login-register");
+const loginContainer = document.querySelector(".login-register__container");
+
+const loginTabsButton = document.querySelector("#login-page");
+const registerTabsButton = document.querySelector("#register-page");
+
+const signInButton = document.querySelector(".sign-in-btn")
+const registerButton = document.querySelector(".register-button");
+const passwordRepeat = document.querySelector(".password-repeat");
+
+function logIn () {
+    registerButton.style.display = "none";
+    passwordRepeat.style.display = "none";
+    loginTabsButton.style.color = "var(--black)";
+    registerTabsButton.style.color = "var(--light-gray-3)";
+
+
+}
+
+function register() {
+    registerButton.style.display = "block";
+    passwordRepeat.style.display = "block";
+    loginTabsButton.style.color = "var(--light-gray-3)";
+    registerTabsButton.style.color = "var(--black)";
+}
+
+logButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+        loginRegistration.classList.add("active");
+        loginContainer.classList.add("active")
+
+        if(button.id === "login-btn"){
+            logIn();
+        } else if(button.id === "register-btn") {
+            register();
+        }
+    })
+
+})
+
+loginTabsButton.addEventListener("click", () => {
+    logIn();
+})
+registerTabsButton.addEventListener("click", () => {
+    register();
+})
+
+
+
+
+
+
+//Close Registration Page
+const closeBtn = document.querySelector(".close-btn");
+closeBtn.addEventListener("click", () => {
+    loginRegistration.classList.remove("active");
+})
+
+// //Buttons on the menu
+// const loginBtn = document.querySelectorAll("#login-btn, #register-btn");
+// const registerPage = document.querySelector(".login-register");
+
+// const registerPageContainer = document.querySelector(".login-register__container");
+// const closeBtn = document.querySelector(".close-btn");
+
+// const login = document.querySelector("#login-page");
+// const register = document.querySelector("#register-page");
+// const tabs = document.querySelectorAll(".login-register__tabs__btn");
+
+// const passwordRepeat = document.querySelector(".password-repeat");
+// const registerButton = document.querySelector(".register-button");
+// const signInButton = document.querySelector(".sign-in-btn");
+
+// //To open register menu
+// loginBtn.forEach(button => {
+//     button.addEventListener("click", ()=> {
+//         registerPage.classList.add("active");
+//         registerPageContainer.classList.add("active");
+
+//         login.classList.remove("active");
+//         register.classList.remove("active");
+
+//         if(button.id === "login-btn") {
+//             login.classList.add("active");
+//             registerButton.classList.remove("active");
+//             signInButton.classList.add("active")
+//             passwordRepeat.classList.remove("active");
+
+
+//         } else if (button.id === "register-btn") {
+//             register.classList.add("active");
+//             registerButton.classList.add("active");
+//             signInButton.classList.remove("active")
+//             passwordRepeat.classList.add("active");
+//         }
+
+
+//     })
+
+
+// })
+
+// //close button on the register page
+
+
+// closeBtn.addEventListener("click", ()=> {
+//     registerPage.classList.remove("active");
+// })
+
+
+// //To choose whichone;
+
+// tabs.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         tabs.forEach((tab) => {
+//             tab.classList.remove("active");
+//         });
+
+//         button.classList.add("active");
+//     });
+// });
+
+
+
+
+

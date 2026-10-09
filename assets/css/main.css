@@ -5,6 +5,7 @@
   --light-gray-1: #FAFAFA;
   --light-gray-2: #F5F5F5;
   --light-gray-3: #8B8B8B;
+  --light-gray-4: #cececec7;
   --gray: #ADADAD;
   --black: #000000;
   --primary-color: #A8FF35;
@@ -844,6 +845,176 @@ body {
 }
 .join__button:hover, .join__button:focus-visible {
   border-color: var(--black);
+}
+
+.login-register {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background-color: var(--black);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+}
+.login-register.active {
+  display: flex;
+}
+.login-register img {
+  width: clamp(1.5rem, 1.148rem + 0.939vw, 2.5rem);
+  height: clamp(1.5rem, 1.148rem + 0.939vw, 2.5rem);
+}
+.login-register__container {
+  width: 50%;
+}
+@media (max-width: 480px) {
+  .login-register__container {
+    width: 80%;
+  }
+}
+.login-register__container {
+  padding: clamp(1.6rem, 1.037rem + 1.502vw, 3.2rem);
+  background-color: var(--white);
+  border-radius: 1rem;
+  opacity: 0;
+  transform: scale(0);
+}
+.login-register__container.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.login-register__tabs {
+  margin-block-end: clamp(2rem, 1.12rem + 2.347vw, 4.5rem);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  border-bottom: 1px solid var(--light-gray-4);
+}
+.login-register__tabs--buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0 clamp(1.6rem, 1.037rem + 1.502vw, 3.2rem);
+}
+.login-register__tabs__btn {
+  display: block;
+  position: relative;
+  font-size: clamp(1.4rem, 1.259rem + 0.376vw, 1.8rem);
+  font-weight: var(--bolder-weight);
+  color: var(--light-gray-3);
+  padding: clamp(1rem, 0.93rem + 0.188vw, 1.2rem);
+  transition: color 0.2s ease;
+}
+.login-register__tabs__btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.login-register__tabs__btn:hover::after, .login-register__tabs__btn:focus-visible::after, .login-register__tabs__btn:focus::after, .login-register__tabs__btn:focus-within::after {
+  opacity: 1;
+}
+.login-register__title {
+  font-size: clamp(2.4rem, 1.977rem + 1.127vw, 3.6rem);
+  font-weight: var(--heading-weight);
+}
+.login-register__description {
+  font-size: clamp(1.4rem, 1.259rem + 0.376vw, 1.8rem);
+  color: var(--light-gray-3);
+  margin-block-end: clamp(1.5rem, 1.324rem + 0.469vw, 2rem);
+}
+.login-register__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 2rem;
+}
+.login-register__field {
+  position: relative;
+  width: 100%;
+}
+.login-register__field img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.login-register__field--icon {
+  left: 1rem;
+}
+.login-register__field--visibility-icon {
+  right: 1rem;
+}
+.login-register__field--input {
+  display: block;
+  width: 100%;
+  padding: clamp(1rem, 0.648rem + 0.939vw, 2rem) clamp(3rem, 2.648rem + 0.939vw, 4rem);
+  font-size: clamp(1.4rem, 1.259rem + 0.376vw, 1.8rem);
+  border: 1px solid var(--light-gray-3);
+  border-radius: 1rem;
+}
+.login-register__forgot-password {
+  margin-left: auto;
+  font-size: clamp(1.4rem, 1.259rem + 0.376vw, 1.8rem);
+  color: var(--primary-color);
+}
+.login-register .register-button,
+.login-register .sign-in-btn {
+  display: none;
+  width: 100%;
+  border-radius: 1rem;
+  padding: clamp(1rem, 0.824rem + 0.469vw, 1.5rem);
+  font-size: clamp(1.4rem, 1.259rem + 0.376vw, 1.8rem);
+  font-weight: var(--bolder-weight);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.login-register .password-repeat {
+  display: none;
+}
+.login-register .sign-in-btn.active {
+  display: block;
+}
+.login-register .register-button.active,
+.login-register .password-repeat.active {
+  display: block;
+}
+.login-register__separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-gray-3);
+  position: relative;
+}
+.login-register__separator .gray {
+  display: block;
+  width: 5rem;
+  position: absolute;
+  font-size: clamp(1.4rem, 1.259rem + 0.376vw, 1.8rem);
+  text-align: center;
+  background-color: var(--white);
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @keyframes moveRotateDirection {
