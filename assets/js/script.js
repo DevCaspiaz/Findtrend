@@ -105,6 +105,9 @@ function logIn () {
     loginTabsButton.style.color = "var(--black)";
     registerTabsButton.style.color = "var(--light-gray-3)";
 
+    loginRegistration.classList.add("active");
+    loginContainer.classList.add("active")
+
 
 }
 
@@ -113,13 +116,14 @@ function register() {
     passwordRepeat.style.display = "block";
     loginTabsButton.style.color = "var(--light-gray-3)";
     registerTabsButton.style.color = "var(--black)";
+
+    loginRegistration.classList.add("active");
+    loginContainer.classList.add("active")
 }
 
 logButtons.forEach((button) => {
 
     button.addEventListener("click", () => {
-        loginRegistration.classList.add("active");
-        loginContainer.classList.add("active")
 
         if(button.id === "login-btn"){
             logIn();
@@ -139,78 +143,46 @@ registerTabsButton.addEventListener("click", () => {
 
 
 
-
-
-
 //Close Registration Page
 const closeBtn = document.querySelector(".close-btn");
 closeBtn.addEventListener("click", () => {
     loginRegistration.classList.remove("active");
 })
 
-// //Buttons on the menu
-// const loginBtn = document.querySelectorAll("#login-btn, #register-btn");
-// const registerPage = document.querySelector(".login-register");
 
-// const registerPageContainer = document.querySelector(".login-register__container");
-// const closeBtn = document.querySelector(".close-btn");
-
-// const login = document.querySelector("#login-page");
-// const register = document.querySelector("#register-page");
-// const tabs = document.querySelectorAll(".login-register__tabs__btn");
-
-// const passwordRepeat = document.querySelector(".password-repeat");
-// const registerButton = document.querySelector(".register-button");
-// const signInButton = document.querySelector(".sign-in-btn");
-
-// //To open register menu
-// loginBtn.forEach(button => {
-//     button.addEventListener("click", ()=> {
-//         registerPage.classList.add("active");
-//         registerPageContainer.classList.add("active");
-
-//         login.classList.remove("active");
-//         register.classList.remove("active");
-
-//         if(button.id === "login-btn") {
-//             login.classList.add("active");
-//             registerButton.classList.remove("active");
-//             signInButton.classList.add("active")
-//             passwordRepeat.classList.remove("active");
+//Password hide/show
 
 
-//         } else if (button.id === "register-btn") {
-//             register.classList.add("active");
-//             registerButton.classList.add("active");
-//             signInButton.classList.remove("active")
-//             passwordRepeat.classList.add("active");
-//         }
+document.querySelectorAll(".login-register__field").forEach((field) => {
+    const input = field.querySelector('input[type="password"]');
+    const showPassword = field.querySelector(".show-password");
+    const hidePassword = field.querySelector(".hide-password");
+
+    if (!input || !showPassword || !hidePassword) return;
+
+    showPassword.style.display = "none";
+
+    hidePassword.addEventListener("click", () => {
+        input.type = "text";
+        showPassword.style.display = "block";
+        hidePassword.style.display = "none";
+    });
+
+    showPassword.addEventListener("click", () => {
+        input.type = "password";
+        showPassword.style.display = "none";
+        hidePassword.style.display = "block";
+    });
 
 
-//     })
+});
 
+//Get started btn, Free Trial, Join Btn
 
-// })
+const openLogin = document.querySelectorAll(".get-start, .join__button, .pricing__card__button");
 
-// //close button on the register page
+openLogin.forEach(button => {button.addEventListener("click", ()=> logIn())})
 
-
-// closeBtn.addEventListener("click", ()=> {
-//     registerPage.classList.remove("active");
-// })
-
-
-// //To choose whichone;
-
-// tabs.forEach((button) => {
-//     button.addEventListener("click", () => {
-//         tabs.forEach((tab) => {
-//             tab.classList.remove("active");
-//         });
-
-//         button.classList.add("active");
-//     });
-// });
 
 
 

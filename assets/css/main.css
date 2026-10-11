@@ -961,6 +961,7 @@ body {
 }
 .login-register__field--visibility-icon {
   right: 1rem;
+  cursor: pointer;
 }
 .login-register__field--input {
   display: block;
