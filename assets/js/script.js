@@ -116,6 +116,7 @@ const passwordRepeatInput = document.querySelector("#password-repeat");
 
 function logIn () {
     signInButton.classList.add("active");
+    signInButton.style.display = "block";
     registerButton.style.display = "none";
     passwordRepeat.style.display = "none";
     passwordRepeatInput.required = false;
@@ -131,6 +132,7 @@ function logIn () {
 
 function register() {
     signInButton.classList.remove("active");
+    signInButton.style.display = "none";
     registerButton.style.display = "block";
     passwordRepeat.style.display = "block";
     passwordRepeatInput.required = true;
@@ -256,8 +258,22 @@ openLogin.forEach(button => {
 //Form
 
 const loginForm = document.querySelector(".login-register__form");
+const passwordInput = document.querySelector("#password");
 
 loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if(!passwordRepeatInput.required) return;
+
+    if(passwordInput.value !== passwordRepeatInput.value) {
+        passwordRepeatInput.setCustomValidity("Passwords do not match!");
+        passwordRepeatInput.reportValidity();
+        return;
+    }
+
+    passwordRepeatInput.setCustomValidity("");
 });
 
+passwordRepeatInput.addEventListener("input", () => {
+    passwordRepeatInput.setCustomValidity("");
+});
