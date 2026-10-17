@@ -12,3 +12,19 @@
 @use './layout/footer';
 
 @use './page/home';
+
+@media (prefers-reduced-motion: reduce) {
+    .new-tab__left-comment,
+    .new-tab__right-comment,
+    .pricing__comment,
+    .join__title .green,
+    .header__social img,
+    .header__btn .get-start-text,
+    .header__btn .fire-icon {
+        animation: none !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}

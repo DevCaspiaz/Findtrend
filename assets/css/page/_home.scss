@@ -431,7 +431,7 @@
         position: relative;
         width: 100%;
 
-        & img {
+        &>img {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -442,8 +442,16 @@
         }
 
         &--visibility-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             right: 1rem;
             cursor: pointer;
+
+            img {
+                position: static;
+                transform: none;
+            }
         }
 
         &--input {

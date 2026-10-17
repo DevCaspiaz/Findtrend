@@ -951,7 +951,7 @@ body {
   position: relative;
   width: 100%;
 }
-.login-register__field img {
+.login-register__field > img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -960,8 +960,15 @@ body {
   left: 1rem;
 }
 .login-register__field--visibility-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   right: 1rem;
   cursor: pointer;
+}
+.login-register__field--visibility-icon img {
+  position: static;
+  transform: none;
 }
 .login-register__field--input {
   display: block;
@@ -1132,5 +1139,19 @@ body {
   }
   .pricing__plans {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .new-tab__left-comment,
+  .new-tab__right-comment,
+  .pricing__comment,
+  .join__title .green,
+  .header__social img,
+  .header__btn .get-start-text,
+  .header__btn .fire-icon {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -3,17 +3,31 @@
 const navbar = document.querySelector(".navigation__nav");
 const navbarBtn = document.querySelector(".btn-toggle");
 
+function setNavbarOpen (isOpen) {
+    navbar.classList.toggle("active", isOpen);
+    navbar.classList.toggle("rotate", isOpen);
+    document.body.classList.toggle("no-scroll", isOpen);
 
+    navbarBtn.setAttribute("aria-expanded", String(isOpen));
+    navbarBtn.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+}
 
 navbarBtn.addEventListener("click", () => {
 
-    navbar.classList.toggle("active");
-    navbarBtn.classList.toggle("rotate");
+    const isOpen = navbarBtn.getAttribute("aria-expanded") !== "true";
+    setNavbarOpen(isOpen);
+});
 
-    document.body.classList.toggle("no-scroll")
-})
+navbar.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setNavbarOpen(false));
+});
 
 
+
+// Ads' boxes
 
 const boxes = document.querySelectorAll('.startup__box');
 
@@ -98,27 +112,36 @@ const registerTabsButton = document.querySelector("#register-page");
 const signInButton = document.querySelector(".sign-in-btn")
 const registerButton = document.querySelector(".register-button");
 const passwordRepeat = document.querySelector(".password-repeat");
+const passwordRepeatInput = document.querySelector("#password-repeat");
 
 function logIn () {
+    signInButton.classList.add("active");
     registerButton.style.display = "none";
     passwordRepeat.style.display = "none";
+    passwordRepeatInput.required = false;
+
     loginTabsButton.style.color = "var(--black)";
     registerTabsButton.style.color = "var(--light-gray-3)";
 
     loginRegistration.classList.add("active");
     loginContainer.classList.add("active")
 
-
+    document.querySelector("#email").focus();
 }
 
 function register() {
+    signInButton.classList.remove("active");
     registerButton.style.display = "block";
     passwordRepeat.style.display = "block";
+    passwordRepeatInput.required = true;
+
     loginTabsButton.style.color = "var(--light-gray-3)";
     registerTabsButton.style.color = "var(--black)";
 
     loginRegistration.classList.add("active");
     loginContainer.classList.add("active")
+
+    document.querySelector("#email").focus();
 }
 
 logButtons.forEach((button) => {
@@ -126,8 +149,10 @@ logButtons.forEach((button) => {
     button.addEventListener("click", () => {
 
         if(button.id === "login-btn"){
+            lastModalTrigger = button;
             logIn();
         } else if(button.id === "register-btn") {
+            lastModalTrigger = button;
             register();
         }
     })
@@ -144,11 +169,47 @@ registerTabsButton.addEventListener("click", () => {
 
 
 //Close Registration Page
-const closeBtn = document.querySelector(".close-btn");
-closeBtn.addEventListener("click", () => {
-    loginRegistration.classList.remove("active");
-})
 
+let lastModalTrigger = null;
+
+function closeLoginRegister() {
+    loginRegistration.classList.remove("active");
+    loginContainer.classList.remove("active");
+    lastModalTrigger?.focus();
+}
+
+
+const closeBtn = document.querySelector(".close-btn");
+
+closeBtn.addEventListener("click", closeLoginRegister);
+
+loginContainer.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeLoginRegister();
+        return;
+    }
+
+    if (event.key !== "Tab") return;
+
+    const focusableElements = [
+        ...loginContainer.querySelectorAll(
+            'button:not([disabled]), input:not([disabled]), a[href]'
+        )
+    ].filter((element) => element.offsetParent !== null);
+
+    const first = focusableElements[0];
+    const last = focusableElements[focusableElements.length - 1];
+
+    if (!first || !last) return;
+
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+});
 
 //Password hide/show
 
@@ -181,10 +242,22 @@ document.querySelectorAll(".login-register__field").forEach((field) => {
 
 const openLogin = document.querySelectorAll(".get-start, .join__button, .pricing__card__button");
 
-openLogin.forEach(button => {button.addEventListener("click", ()=> logIn())})
+openLogin.forEach(button => {
+    button.addEventListener("click", ()=> {
+        lastModalTrigger = button;
+        logIn()
+
+    })
+})
 
 
 
 
+//Form
 
+const loginForm = document.querySelector(".login-register__form");
+
+loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+});
 

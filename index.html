@@ -25,7 +25,7 @@
             <span class="navigation__logo--text">Findtrend</span>
         </div>
 
-        <nav class="navigation__nav">
+        <nav class="navigation__nav" id="main-navigation">
 
             <ul class="navigation__list">
                 <li class="navigation__item"><a href="#about" class="navigation__link">About</a></li>
@@ -42,7 +42,7 @@
 
         </nav>
 
-        <button type="button" aria-label="" aria-controls="" aria-expanded="true" class="btn-toggle">
+        <button type="button" aria-label="Open navigation menu" aria-controls="main-navigation" aria-expanded="false" class="btn-toggle">
             <span class="first-line-span"></span>
             <span class="last-line-span"></span>
         </button>
@@ -88,9 +88,9 @@
                         <img src="./assets/image/new-tab-comment-2.svg" alt="">
                     </div>
 
-                    <button type="button" class="new-tab__center-comment">
+                    <figure type="button" class="new-tab__center-comment">
                         <img src="./assets/image/logo-comment.svg" alt="Comment by Elon Musk">
-                    </button>
+                    </figure>
 
                     <div class="new-tab__right-comment">
                         <img src="./assets/image/new-tab-comment-arrow.svg" alt="">
@@ -319,7 +319,7 @@
 
         <section class="login-register" id="login-register">
 
-            <div class="login-register__container">
+            <div class="login-register__container" role="dialog" aria-modal="true" aria-labelledby="login-register-title">
 
                 <div class="login-register__tabs">
 
@@ -328,15 +328,15 @@
                         <button id="register-page" class="login-register__tabs__btn">Register</button>
                     </div>
 
-                    <button type="button" class="close-btn"><img src="./assets/image/cancel-btn.svg" alt=""></button>
+                    <button type="button" class="close-btn" aria-label="Close login or register dialog"><img src="./assets/image/cancel-btn.svg" alt=""></button>
                     
                 </div>
 
-                <h2 class="login-register__title">Welcome back.</h2>
+                <h2 class="login-register__title" id="login-register-title">Welcome back.</h2>
 
                 <p class="login-register__description">Sign in to continue to Findtrend.</p>
 
-                <form class="login-register__form" action="#">
+                <form class="login-register__form">
 
                     <label class="login-register__field" for="email">
                         
@@ -346,29 +346,26 @@
 
                     </label>
 
-                    <label class="login-register__field" for="password">
+                    <div class="login-register__field" for="password">
 
                         <img src="./assets/image/password.svg" alt="" class="login-register__field--icon">
 
                         <input class="login-register__field--input" type="password" name="password" id="password" placeholder="Password" required>
 
 
-                        <img src="./assets/image/visibility-of.svg" alt="" class="login-register__field--visibility-icon hide-password">
-                        <img src="./assets/image/visibility.svg" alt="" class="login-register__field--visibility-icon show-password">
+                        <button type="button" class="login-register__field--visibility-icon hide-password"><img src="./assets/image/visibility-of.svg" alt=""></button>
+                        <button type="button" class="login-register__field--visibility-icon show-password"><img src="./assets/image/visibility.svg" alt=""></button>                   </div>
 
-                    </label>
-
-                    <label class="login-register__field password-repeat" for="password-repeat">
+                    <div class="login-register__field password-repeat" for="password-repeat">
 
                         <img src="./assets/image/password.svg" alt="" class="login-register__field--icon">
 
                         <input class="login-register__field--input" type="password" name="password-repeat" id="password-repeat" placeholder="Repeat password again" required>
 
-                        <img src="./assets/image/visibility-of.svg" alt="" class="login-register__field--visibility-icon hide-password">
-                        <img src="./assets/image/visibility.svg" alt="" class="login-register__field--visibility-icon show-password">
-                        
+                        <button type="button" class="login-register__field--visibility-icon hide-password"><img src="./assets/image/visibility-of.svg" alt=""></button>
+                        <button type="button" class="login-register__field--visibility-icon show-password"><img src="./assets/image/visibility.svg" alt=""</button>                      
 
-                    </label>
+                    </div>
 
                     <a href="#" class="login-register__forgot-password">Forgot password?</a>
 
