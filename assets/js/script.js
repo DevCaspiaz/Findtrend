@@ -108,6 +108,8 @@ const loginContainer = document.querySelector(".login-register__container");
 
 const loginTabsButton = document.querySelector("#login-page");
 const registerTabsButton = document.querySelector("#register-page");
+const loginTitle = document.querySelector(".login-register__title");
+const loginDescription = document.querySelector(".login-register__description");
 
 const signInButton = document.querySelector(".sign-in-btn")
 const registerButton = document.querySelector(".register-button");
@@ -120,6 +122,10 @@ function logIn () {
     registerButton.style.display = "none";
     passwordRepeat.style.display = "none";
     passwordRepeatInput.required = false;
+    passwordRepeatInput.setCustomValidity("");
+
+    loginTitle.textContent = "Welcome back.";
+    loginDescription.textContent = "Sign in to continue to Findtrend.";
 
     loginTabsButton.style.color = "var(--black)";
     registerTabsButton.style.color = "var(--light-gray-3)";
@@ -136,6 +142,9 @@ function register() {
     registerButton.style.display = "block";
     passwordRepeat.style.display = "block";
     passwordRepeatInput.required = true;
+
+    loginTitle.textContent = "Create your account.";
+    loginDescription.textContent = "Register to get started with Findtrend.";
 
     loginTabsButton.style.color = "var(--light-gray-3)";
     registerTabsButton.style.color = "var(--black)";

@@ -1,6 +1,11 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+button:focus-visible {
+    outline: 1px solid var(--black);
+    outline-offset: 1.5px;
+}
+
 
 .btn {
     display: block;

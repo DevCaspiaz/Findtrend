@@ -481,6 +481,13 @@
         @include flexRowCenter($gap: 1rem);
     }
 
+    .login-register__tabs .close-btn:focus,
+    .login-register__tabs .close-btn:focus-visible {
+        outline: 1px solid var(--black);
+        outline-offset: 1.5px;
+        box-shadow: 0 0 0 1px var(--primary-color);
+    }
+
     .password-repeat{display: none;}
 
     .sign-in-btn.active {
